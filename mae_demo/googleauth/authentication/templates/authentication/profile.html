@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wellness Abroad | Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'authentication/style.css' %}">
+</head>
+
+<body>
+
+  <!-- Start Navigation -->
+
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark fixed-top">
+    <!--         <div class="container-fluid">
+ --> <a class="navbar-brand" href="{% url 'authentication:index' %}">
+      <img src="{% static 'authentication/logo.png' %}">
+      Wellness Abroad</a>
+    <!-- Start Button -->
+
+    <button class="navbar-toggler" type="button " data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!-- Start Button -->
+
+    <button class="navbar-toggler navbar-toggler-right" type="button " data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- End Button -->
+
+    <!-- Start Links -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <!-- Home -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'authentication:index' %}">Home</a>
+        </li>
+
+        <!-- About -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'authentication:about' %}">About</a>
+        </li>
+
+        <!-- Profile -->
+        <li class="nav-item">
+          <a style="color: white" class="nav-link" href="{% url 'authentication:view_profile' %}">Profile</a>
+        </li>
+
+        <!-- Events -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'event:event_index' %}">Events</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- End Links-->
+
+
+    </div>
+    <!-- End Container -->
+  </nav>
+
+  <!-- End Navigation -->
+  <div style="height: 58px"> </div>
+  <!-- Start Contianer -->
+  <div class="container" style="margin-left: 100px; margin-right:50px">
+    <div style="height:150px"> </div>
+    <center>
+      <div class="row">
+        <div class="col-md-4">
+          <img style="width:300px;height:300px; margin-left: 50px" class="img-fluid rounded mb-3 mb-md-0"
+            src="{{ user.image.url }}" alt="My Image">
+          <div style="height: 10px;"> </div>
+          <a style="margin-left: 250px" href="{% url 'authentication:edit_profile_image' %}"> Edit </a>
+        </div>
+        <div style="width:50px"></div>
+        <div class="col-md-4">
+          <div class="row">
+            <h3 style="color: #073949; font-size:40px">{{user.name}}</h3>
+            <a style="margin-left: 5px" href="{% url 'authentication:edit_profile_name' %}"> Edit </a>
+          </div>
+          <div style="height:10px"> </div>
+          <div class="row">
+            <h3 style="color: #073949; font-size:25px">{{user.email}}</h3>
+            <a style="margin-left: 5px" href="{% url 'authentication:edit_profile_email' %}"> Edit </a>
+          </div>
+          <div style="height:30px"> </div>
+          <div class="row">
+            <p style="color: #073949; font-size: 20px"> Age : </p>
+            <div style="width: 15px"> </div>
+            <p style="color: #073949; font-size: 20px"> {{user.age}}</p>
+            <a style="margin-left: 5px" href="{% url 'authentication:edit_profile_age' %}"> Edit </a>
+          </div>
+          <div class="row">
+            <p style="color: #073949; font-size: 20px"> Gender : </p>
+            <div style="width: 15px"> </div>
+            <p style="color: #073949; font-size: 20px"> {{user.gender}}</p>
+            <a style="margin-left: 5px" href="{% url 'authentication:edit_profile_gender' %}"> Edit </a>
+          </div>
+          <div class="row">
+            <p style="color: #073949; font-size: 20px"> Interest : </p>
+            <div style="width: 15px"> </div>
+            <p style="color: #073949; font-size: 20px"> {{user.interest}}</p>
+            <a style="margin-left: 5px" href="{% url 'authentication:edit_profile_interest' %}"> Edit </a>
+          </div>
+        </div>
+
+      </div>
+    </center>
+  </div>
+  <!--End Container-->
+
+  <br>
+  <br>
+
+
+  <!--  nned to change it so it is stuck into the bottom of the page -->
+  <footer class="py-5 bg-dark"
+    style="background-color: #073949!important; position:absolute; width: 100%; bottom: -50px; height: 30px">
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+</body>
+
+</html>

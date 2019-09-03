@@ -1,0 +1,156 @@
+<!DOCTYPE html>
+<html lang="en">
+
+{% load static %}
+
+{% load socialaccount %}
+
+{% providers_media_js %}
+
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Wellness Abroad | About</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+    <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.0.8/js/all.js"></script>
+    <!-- <link href="style.css" rel="stylesheet"> -->
+    <link rel="stylesheet" type="text/css" href="{% static 'authentication/style.css' %}">
+
+</head>
+
+
+<body>
+
+    <!-- Navigation -->
+    <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark fixed-top">
+        <!--         <div class="container-fluid">
+ --> <a class="navbar-brand" href="{% url 'authentication:index' %}">
+            <img src="{% static 'authentication/logo.png' %}">
+            Wellness Abroad</a>
+
+        <button class="navbar-toggler" type="button " data-toggle="collapse" data-target="#navbarResponsive">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarResponsive">
+            <ul class="navbar-nav ml-auto">
+                <!-- Home -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authentication:index' %}">Home</a>
+                </li>
+
+                <!-- About -->
+                <li class="nav-item">
+                    <a style="color: white" class="nav-link" href="{% url 'authentication:about' %}">About</a>
+                </li>
+
+                {% if user.is_authenticated %}
+                <!-- Profile -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'authentication:view_profile' %}">Profile</a>
+                </li>
+
+                <!-- Events -->
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'event:event_index' %}">Events</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+                </li>
+
+                {% else %}
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% provider_login_url 'google' %}">Log In</a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link" href="{% provider_login_url 'google' %}">Sign Up</a>
+                </li>
+
+                {% endif %}
+            </ul>
+            <!-- </div> -->
+            <!-- End Links-->
+        </div>
+        <!-- End Container -->
+    </nav>
+    <!-- End Navigation -->
+    <div style="height: 100px"> </div>
+    <!-- Start Contianer -->
+    <div class="container">
+
+        <!-- Page Title -->
+        <div class="container">
+            <!-- <div height: 150% > </div> -->
+            <h1 class="mt-4 mb-10" style="text-align: center"> About Us </h1>
+
+            <!-- Start Breadcrumb -->
+            <!--   <ol class="breadcrumb">
+            <li class="breadcrumb-item">
+                <a href="index.html">Home</a>
+            </li>
+            <li class="breadcrumb-item active">About</li>
+        </ol> -->
+            <!--End Breadcrumb-->
+            <div style="height: 100px"> </div>
+
+            <!-- Start Row-->
+            <div class="row">
+                <div style="height: 50px"></div>
+
+                <div class="col-lg-6">
+                    <img height="350px" width="450px" src="{% static 'authentication/diagram.jpg' %}">
+                </div>
+                <!-- <div style = "height: 100px">  </div> -->
+
+                <div class="col-lg-6">
+
+                    <p> According to the user research we conducted, the majority of international students feel
+                        a severe sense of isolation and loneliness because they tend to not have an intimate
+                        community in the U.S. Unfortunately, international students are observed to be more reluctant
+                        to seek help due to the lack of cultural familiarity and different emotional norms that support
+                        the mental problem (Pupavac, 2004). Therefore, international students are relatively more
+                        prone to risks of depression and other mental health problems.
+                        We aim to support international students by providing a platform that could aid in
+                        improving their mental health. Wellness Abroad generates connections between the students
+                        and local hosts to help increase the students’ sense of belonging in a foreign country.
+                    </p>
+
+                </div>
+            </div>
+
+        </div>
+
+    </div>
+    <!--End Container-->
+
+    <br>
+    <br>
+
+
+    <!-- Footer -->
+
+    <!--  nned to change it so it is stuck into the bottom of the page -->
+    <footer class="py-5 bg-dark"
+        style="background-color: #073949!important; position:absolute; width: 100%; bottom: -50px; height: 30px">
+    </footer>
+
+    <!-- Optional JavaScript -->
+    <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+    <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+        integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+        crossorigin="anonymous"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+    <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+</body>
+
+</html>

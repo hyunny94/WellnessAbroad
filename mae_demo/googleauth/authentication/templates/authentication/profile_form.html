@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en">
+{%load static %}
+
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Wellness Abroad | Profile</title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" type="text/css" href="{% static 'authentication/style.css' %}">
+</head>
+
+<body>
+
+  <!-- Start Navigation -->
+
+  <nav class="navbar fixed-top navbar-expand-md navbar-dark bg-dark fixed-top">
+    <!--         <div class="container-fluid">
+--> <a class="navbar-brand" href="{% url 'authentication:index' %}">
+      <img src="{% static 'authentication/logo.png' %}">
+      Wellness Abroad</a>
+    <!-- Start Button -->
+
+    <button class="navbar-toggler" type="button " data-toggle="collapse" data-target="#navbarResponsive">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+
+    <!-- Start Button -->
+
+    <button class="navbar-toggler navbar-toggler-right" type="button " data-toggle="collapse"
+      data-target="#navbarResponsive" aria-controls="navbarResponsive" aria-expanded="false"
+      aria-label="Toggle navigation">
+      <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <!-- End Button -->
+
+    <!-- Start Links -->
+    <div class="collapse navbar-collapse" id="navbarResponsive">
+      <ul class="navbar-nav ml-auto">
+        <!-- Home -->
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'authentication:index' %}">Home</a>
+        </li>
+
+        <li class="nav-item">
+          <a class="nav-link" href="{% url 'account_logout' %}">Log out</a>
+        </li>
+
+      </ul>
+    </div>
+    <!-- End Links-->
+
+
+    </div>
+    <!-- End Container -->
+  </nav>
+
+  <!-- End Navigation -->
+  <div style="height: 58px"> </div>
+
+  <!-- Start Contianer -->
+  <div class="container">
+
+    <div style="height: 58px"> </div>
+    <!-- Contact Form -->
+    <center>
+      <h3 style="font-size: 50px"> Welcome to Wellness Abroad </h3>
+      <div style="height: 5px"> </div>
+      <h3> Please Fill Out All The Fields </h3>
+      <div style="height: 50px"> </div>
+
+      {% if messages %}
+      {% for message in messages %}
+      <p>
+        {% if message.level == DEFAULT_MESSAGE_LEVELS.ERROR %}
+        {{ message }}
+        {% endif %}
+      </p>
+      {% endfor %}
+      {% endif %}
+
+      {% for field in form %}
+      <div style="height: 30px"> </div>
+      <div>
+        <form enctype="multipart/form-data" action="create_profile" method="post">
+          {% csrf_token %}
+          {{field.label}} {{ field }}
+          {%endfor%}
+          <div style="height: 30px"></div>
+          <input type="submit" value="Submit">
+        </form>
+
+
+      </div>
+    </center>
+    <!-- <form name="sentMessage" id="contactForm" novalidate>
+          <div class="control-group form-group">
+            <div class="controls">
+              </label>Name: </label>
+              <input type="text" class="form-control" id="name" required
+                date-validation-required-message="Please enter the name of the event">
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              </label>Start Time: </label>
+              <input type="text" class="form-control" id="name" required
+                date-validation-required-message="Please enter the start time">
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              </label>End Time: </label>
+              <input type="text" class="form-control" id="name" required
+                date-validation-required-message="Please enter the end time">
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+          <div class="control-group form-group">
+            <div class="controls">
+              </label>Location: </label>
+              <input type="text" class="form-control" id="name" required
+                date-validation-required-message="Please enter the location">
+              <p class="help-block"></p>
+            </div>
+          </div>
+
+          <div id="success"></div>
+          <button type="submit" class="btn btn-primary" id="sendMessageButton">Create</button>
+
+        </form> -->
+
+
+
+
+  </div>
+  <!--End Container-->
+
+  <br>
+  <br>
+
+  <!-- Footer -->
+  <footer class="py-5 bg-dark"
+    style="background-color: #073949!important; position:absolute; width: 100%; bottom: -50px; height: 30px">
+  </footer>
+
+  <!-- Optional JavaScript -->
+  <!-- jQuery first, then Popper.js, then Bootstrap JS -->
+  <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js"
+    integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo"
+    crossorigin="anonymous"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+    integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+    crossorigin="anonymous"></script>
+  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+    integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+    crossorigin="anonymous"></script>
+  <script type="text/javascript" src="/my_admin/jsi18n/"></script>
+  <script type="text/javascript" src="/media/admin/js/core.js"></script>
+
+  <link rel="stylesheet" type="text/css" href="/media/admin/css/forms.css" />
+  <link rel="stylesheet" type="text/css" href="/media/admin/css/base.css" />
+  <link rel="stylesheet" type="text/css" href="/media/admin/css/global.css" />
+  <link rel="stylesheet" type="text/css" href="/media/admin/css/widgets.css" />
+</body>
+
+</html>
